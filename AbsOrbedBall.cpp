@@ -9,6 +9,7 @@ AAbsOrbedBall::AAbsOrbedBall()
 
 	// Create mesh component for the ball
 	Ball = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ball0"));
+	//Set attributes of ball
 	Ball->SetStaticMesh(BallMesh.Object);
 	Ball->BodyInstance.SetCollisionProfileName(UCollisionProfile::PhysicsActor_ProfileName);
 	Ball->SetSimulatePhysics(true);
@@ -47,7 +48,6 @@ void AAbsOrbedBall::SetupPlayerInputComponent(class UInputComponent* InputCompon
 	// set up gameplay key bindings
 	InputComponent->BindAxis("MoveRight", this, &AAbsOrbedBall::MoveRight);
 	InputComponent->BindAxis("MoveForward", this, &AAbsOrbedBall::MoveForward);
-
 	InputComponent->BindAction("Jump", IE_Pressed, this, &AAbsOrbedBall::Jump);
 }
 
@@ -75,6 +75,7 @@ void AAbsOrbedBall::Jump()
 
 void AAbsOrbedBall::NotifyHit(class UPrimitiveComponent* MyComp, class AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
+	//Notify of hit with other component
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
 	bCanJump = true;

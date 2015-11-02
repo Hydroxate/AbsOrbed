@@ -36,15 +36,20 @@ void AOrb::Prox_Implementation(AActor* OtherActor, UPrimitiveComponent* OtherCom
 	AAbsOrbedBall *ball = Cast<AAbsOrbedBall>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 	if (ball)
 	{
+		//If collision with player
 		if (OtherActor == ball)
 		{
+			//Destroy orb
 			Destroy();
 			bIsDestroyed = true;
 			if (bIsDestroyed == true)
-			{					
+			{		
+				//Get scale of player
 				Scale = ball->GetActorScale3D();
-				ball->SetActorRelativeScale3D(Scale.operator*=(1.05f));
-				ball->RollTorque = ball->RollTorque * 1.05f;
+				//increase scale of player * 1.025
+				ball->SetActorRelativeScale3D(Scale.operator*=(1.025f));
+				//increase torque of player * 1.025
+				ball->RollTorque = ball->RollTorque * 1.025f;
 				bIsDestroyed = false;
 			}
 		}

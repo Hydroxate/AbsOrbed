@@ -10,6 +10,7 @@ class AAbsOrbedGameMode : public AGameMode
 	GENERATED_BODY()
 
 public:
+
 	AAbsOrbedGameMode();
 	FTimerHandle TimerHandle;
 	UPROPERTY(EditDefaultsOnly, Category = OrbClass)
