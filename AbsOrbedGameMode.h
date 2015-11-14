@@ -16,6 +16,8 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = OrbClass)
 		TSubclassOf<AOrb> OrbClass;
 
+		class UBlueprint* OrbBlueprint;
+
 	virtual void BeginPlay();
 	
 protected:

@@ -36,6 +36,8 @@ public:
 	/** Indicates whether we can currently jump, use to prevent double jumping */
 	bool bCanJump;
 
+	float size;
+
 protected:
 
 	/** Called for side to side input */

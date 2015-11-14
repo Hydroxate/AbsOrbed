@@ -4,6 +4,8 @@
 #include "AbsOrbedBall.h"
 #include "Orb.h"
 #include "Engine.h"
+#include "OrbHUD.h"
+#include "Engine/Canvas.h"
 #include "AbsOrbedGameMode.h"
 
 
@@ -48,6 +50,7 @@ void AOrb::Prox_Implementation(AActor* OtherActor, UPrimitiveComponent* OtherCom
 				Scale = ball->GetActorScale3D();
 				//increase scale of player * 1.025
 				ball->SetActorRelativeScale3D(Scale.operator*=(1.025f));
+				ball->size = ball->size + 1.f;
 				//increase torque of player * 1.025
 				ball->RollTorque = ball->RollTorque * 1.025f;
 				bIsDestroyed = false;

@@ -12,8 +12,14 @@ UCLASS()
 class ABSORBED_API AOrbHUD : public AHUD
 {
 	GENERATED_BODY()
-	
-	
+public:
+		virtual void DrawHUD();
+		AOrbHUD(const FObjectInitializer& ObjectInitializer);
+
+private:
+	UTexture2D* TorqueHUD;
+
+	void DrawScaleTorque();
 	
 	
 };

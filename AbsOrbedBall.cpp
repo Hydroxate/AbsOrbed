@@ -40,6 +40,7 @@ AAbsOrbedBall::AAbsOrbedBall()
 	RollTorque = 50000000.0f;
 	JumpImpulse = 350000.0f;
 	bCanJump = true; // Start being able to jump
+	size = 1;
 }
 
 

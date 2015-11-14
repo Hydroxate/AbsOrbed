@@ -4,6 +4,7 @@
 #include "AbsOrbedGameMode.h"
 #include "AbsOrbedBall.h"
 #include "Orb.h"
+#include "OrbHUD.h"
 
 AAbsOrbedGameMode::AAbsOrbedGameMode()
 {
@@ -12,11 +13,13 @@ AAbsOrbedGameMode::AAbsOrbedGameMode()
 
 	//Find Blueprint of Orb
 	ConstructorHelpers::FObjectFinder<UBlueprint> OrbBlueprint(TEXT("Blueprint'/Game/RollingCPP/Orb.Orb'"));
-	if (OrbBlueprint.Object)
+	if (OrbBlueprint.Object != NULL)
 	{
 		//If Object exists, set class as class of returned object
 		OrbClass = (UClass*)OrbBlueprint.Object->GeneratedClass;
 	}
+
+	HUDClass = AOrbHUD::StaticClass();
 
 	
 
@@ -25,7 +28,7 @@ AAbsOrbedGameMode::AAbsOrbedGameMode()
 void AAbsOrbedGameMode::BeginPlay()
 {
 	//Create timer, every 1 second call SpawnOrb method
-	GetWorldTimerManager().SetTimer(TimerHandle,this, &AAbsOrbedGameMode::SpawnOrb, 1.0f, true);
+	GetWorldTimerManager().SetTimer(TimerHandle,this, &AAbsOrbedGameMode::SpawnOrb, 3.0f, true);
 }
 
 void AAbsOrbedGameMode::SpawnOrb()
